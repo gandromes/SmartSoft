@@ -1,4 +1,4 @@
-# Практика в компании СмартСофтAdd commentMore actions
+# Практика в компании СмартСофт
 
 ![image](https://github.com/user-attachments/assets/6b2a6fd6-98f7-44a1-9bbe-389bad58040d)
 ![image](https://github.com/user-attachments/assets/e861a266-f6e7-4e7c-a0c7-1f49bc0cd1e0)
