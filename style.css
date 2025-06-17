@@ -1,0 +1,303 @@
+:root {
+  --color-halfblack: rgba(0, 0, 0, 0.5);
+  --color-silver: #ccc;
+  --color-blacksilver: #b0b0b0;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+    margin: auto;
+    /* display: flex; */
+    width: 1000px;
+}
+
+/* БЛОК НАЗВАНИЯ */
+.maintitle{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    margin: 100px 0 70px 0;
+}
+
+/* БЛОК ФОРМ */
+.forminnnerblock {
+    background-color: #fff;
+    border: 1px groove var(--color-blacksilver);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.forminnnerblock label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.forminnnerblock input[type="text"],
+.forminnnerblock input[type="email"],
+.forminnnerblock textarea,
+.forminnnerblock select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px groove var(--color-silver);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+.forminnnerblock select{
+    appearance: none;
+    border: 1px groove var(--color-silver);
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+.forminnnerblock select option {
+    font-size: 10px;
+}
+.forminnnerblock textarea {
+    height: 85px;
+    min-width: 100%;
+    max-width: fit-content;
+}
+.forminnnerblock input[type="submit"] {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+.forminnnerblock input[type="submit"]:hover {
+    background-color: #000000;
+}
+
+/* БЛОК ФОРМ - ХЕЛП */
+.helpblock{
+    margin-bottom: 100px;
+}
+
+/* БЛОК ФОРМ - ЗАКАЗ */
+/* БЛОК ФОРМ - ЗАКАЗ - КАСТОМНЫЙ ЧЕК БОКС [СТАРТ]*/
+.checkbox {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.checkbox-label {
+    cursor: pointer;
+    display: flex !important; /* не круто */
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 55px !important; /* не круто */
+}
+.checkbox-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    transition: .3s;
+}
+.checkbox-icon {
+    opacity: 0;
+    transition: .3s;
+}
+.checkbox:checked + .checkbox-view {
+    background-color: rgb(0, 0, 0);
+}
+.checkbox:checked + .checkbox-view .checkbox-icon {
+    opacity: 1;
+}
+/* БЛОК ФОРМ - ЗАКАЗ - КАСТОМНЫЙ ЧЕК БОКС [КОНЕЦ] */
+
+.orderblock {
+    margin-bottom: 70px;
+}
+.deliveryTime {
+    color: var(--color-halfblack);
+}
+
+
+/* БЛОК ОТЗЫВОВ */
+.reviewsusersblock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 100px 180px 100px;
+}
+.reviewstitles {
+    margin: 0 0 0 50px;
+}
+.reviewstitle {
+    margin-bottom: 0;
+}
+.reviewsubtitle {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+.review {
+    width: 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.reviewusername, .reviewtext {
+    margin: 0;
+}
+.reviewusername {
+    margin: 0 0 10px 0;
+}
+.reviewicon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+.reviewinfoblock {
+    display: flex;
+    flex-direction: column;
+}
+.reviewsubtitle {
+    color: var(--color-halfblack);
+}
+.reviewtext {
+    color: var(--color-halfblack);
+}
+
+
+/* настройки */
+label {
+    font-weight: 300 !important; 
+}
+
+/* ================== АДАПТИВНОСТЬ ================== */
+@media screen and (max-width: 1024px) {
+    .helpblock {
+        margin-bottom: 50px;
+    }
+    .main {
+        width: 90vw;
+    }
+    .reviewsusersblock {
+        margin: 0 40px 120px 40px;
+    }
+    .review {
+        width: 45%;
+    }
+    .orderblock {
+        margin-bottom: 60px;
+    }
+    .checkbox-label {
+      margin-bottom: 40px !important; /* не круто */
+    }
+}
+@media screen and (max-width: 768px) {
+    .maintitle {
+        font-size: 1.5rem;
+        margin: 70px 0 50px 0;
+    }
+    .reviewsusersblock {
+        margin: 0 20px 100px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .review {
+        width: 100%;
+        max-width: 500px;
+    }
+    .checkbox-label {
+        font-size: 16px;
+    }
+    .orderblock {
+        margin-bottom: 50px;
+    }
+    .forminnnerblock {
+        padding: 15px;
+    }
+    .forminnnerblock input[type="text"],
+    .forminnnerblock input[type="email"],
+    .forminnnerblock textarea,
+    .forminnnerblock select {
+        margin-bottom: 0px;
+        padding: 5px;
+    }
+    .orderInfo {
+        margin-top: 2px;
+        margin-bottom: 10px;
+        font-size: 22.5px;
+    }
+    .deliveryTime {
+        margin-top: 0px;
+    }
+    .checkbox-label {
+        margin-bottom: 30px !important; /* не круто */
+    }
+    .reviewsusersblock {
+        margin: 0 35px 100px 35px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .maintitle {
+        font-size: 1.25rem;
+        margin: 50px 0 40px 0;
+    }
+    .reviewstitles {
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+    .forminnnerblock {
+        padding: 15px;
+    }
+    .review {
+        flex-direction: row;
+        width: 100%;
+    }
+    .maintitle {
+        font-size: 1.55rem;
+    }
+    .helpblock {
+        margin-bottom: 23px;
+    }
+    .orderblock {
+        margin-bottom: 33px;
+    }
+    .orderInfo {
+        margin-top: 2px;
+        margin-bottom: 7px;
+        font-size: 19px;
+    }
+    .deliveryTime {
+        font-size: 14px;
+    }
+    .reviewsusersblock {
+        margin-bottom: 30px;
+    }
+    .forminnnerblock input[type="text"],
+    .forminnnerblock input[type="email"],
+    .forminnnerblock textarea,
+    .forminnnerblock select {
+        margin-bottom: -15px;
+    }
+    .checkbox-label {
+        margin-top: 13px;
+        margin-bottom: 0px !important; /* не круто */
+    }
+    .reviewsubtitle {
+        margin-bottom: 25px;
+    }
+    .forminnnerblock input[type="submit"] {
+        margin-top: 20px;
+    }
+}
