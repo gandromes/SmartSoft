@@ -56,7 +56,7 @@
     margin-bottom: 15px;
 }
 .forminnnerblock select option {
-    font-size: 10px;
+    font-size: 16px;
 }
 .forminnnerblock textarea {
     height: 85px;
@@ -83,7 +83,7 @@
 
 /* БЛОК ФОРМ - ЗАКАЗ */
 /* БЛОК ФОРМ - ЗАКАЗ - КАСТОМНЫЙ ЧЕК БОКС [СТАРТ]*/
-.checkbox {
+.terms_agreement {
     position: absolute;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -112,10 +112,10 @@
     opacity: 0;
     transition: .3s;
 }
-.checkbox:checked + .checkbox-view {
+.terms_agreement:checked + .checkbox-view {
     background-color: rgb(0, 0, 0);
 }
-.checkbox:checked + .checkbox-view .checkbox-icon {
+.terms_agreement:checked + .checkbox-view .checkbox-icon {
     opacity: 1;
 }
 /* БЛОК ФОРМ - ЗАКАЗ - КАСТОМНЫЙ ЧЕК БОКС [КОНЕЦ] */
@@ -202,6 +202,9 @@ label {
     .checkbox-label {
       margin-bottom: 40px !important; /* не круто */
     }
+    .forminnnerblock select option {
+        font-size: 13px;
+    }
 }
 @media screen and (max-width: 768px) {
     .maintitle {
@@ -247,6 +250,9 @@ label {
     .reviewsusersblock {
         margin: 0 35px 100px 35px;
     }
+    .forminnnerblock select option {
+        font-size: 13px;
+    }
 }
 @media screen and (max-width: 480px) {
     .maintitle {
@@ -289,6 +295,7 @@ label {
     .forminnnerblock textarea,
     .forminnnerblock select {
         margin-bottom: -15px;
+        font-size: 16px;
     }
     .checkbox-label {
         margin-top: 13px;
@@ -299,5 +306,8 @@ label {
     }
     .forminnnerblock input[type="submit"] {
         margin-top: 20px;
+    }
+    .forminnnerblock select option {
+        font-size: 14px;
     }
 }

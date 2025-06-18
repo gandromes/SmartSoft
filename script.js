@@ -4,8 +4,24 @@ var _ = {
     len: (any) => any.length,
     log: (any) => console.log(any),
     error: (any) => console.error(any),
-    empty: ''
+    empty: '',
+    upfirstletter: (str) => str.charAt(0).toUpperCase() + str.substring(1),
+    shuffle: function shuffle(array) {
+        var currentIndex = array.length;
+        var randomIndex;
+
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+
+        return array;
+    }
 }
+
 // CONST
 var MINLETTERUSERFORM = 3;
 var SERVERURL = 'http://127.0.0.1';
@@ -16,10 +32,10 @@ var PATHREVIEWICON = "reviewicon.png"
 document.getElementById("helpblock").addEventListener('submit', function (e){
     e.preventDefault();
 
-    var name    = this['name'].value.trim();
-    var surname = this['surname'].value.trim();
-    var message = this['message'].value.trim();
-    var email   = this['email'].value.trim();
+    var name    = this.elements['name'].value.trim();
+    var surname = this.elements['surname'].value.trim();
+    var message = this.elements['message'].value.trim();
+    var email   = this.elements['email'].value.trim();
 
     if (_.len(name) < MINLETTERUSERFORM) {
         Swal.fire({
@@ -28,14 +44,13 @@ document.getElementById("helpblock").addEventListener('submit', function (e){
             text: 'Поле Имя должно содержать не менее 3 символов!'
         })
     }
-    else if (_.len(surname) < MINLETTERUSERFORM) {
-        if (surname !== _.empty) { // по тз фамилия не обезательное поле.
-            Swal.fire({
-                icon: 'warning',
-                title: 'Ошибка',
-                text: 'Поле Фамилия должна содержать не менее 3 символов!',
-            })
-        }
+    else if ((_.len(surname) < MINLETTERUSERFORM) && (surname !== _.empty)) {
+        // по тз фамилия не обезательное поле.
+        Swal.fire({
+            icon: 'warning',
+            title: 'Ошибка',
+            text: 'Поле Фамилия должна содержать не менее 3 символов!',
+        })
     }
     else if (email == _.empty) {
         Swal.fire({
@@ -87,9 +102,9 @@ document.getElementById('orderblock').addEventListener('submit', function (e){
             text: 'Имя должно содержать не менее 3 символов!'
         })
     }
-    // Странно должна быть проверка на адрес так как адрес доставки заказа важнейший параметр
+    // Странно должна быть проверка на адрес так как адрес доставки заказа важный параметр без которого доставка не реализуема
     else if (!ischeck) {
-            Swal.fire({
+        Swal.fire({
             icon: 'warning',
             title: 'Ошибка',
             text: 'Необходимо принять условия договора-оферты'
@@ -99,8 +114,8 @@ document.getElementById('orderblock').addEventListener('submit', function (e){
         Swal.fire({
             title: 'Ваш заказ создан!',
             html: `
-            <p><strong>Имя:</strong> ${name}</p>
-            <p><strong>Адрес:</strong> ${address}</p>
+            <p><strong>Имя:</strong> ${_.upfirstletter(name)}</p>
+            <p><strong>Адрес:</strong> ${address || 'Отсутствует'}</p>
             <p><strong>Комментарий:</strong> ${comment || 'Отсутствует'}</p>
             `,
             icon: 'success',
@@ -134,6 +149,8 @@ fetch('reviews.json')
     .then(data => {
         
         var reviewsusersblock = document.getElementById('reviewsusersblock');
+
+        _.shuffle(data); // Сделаем рандомные отзывы чтобы поинтереснее было
 
         data.forEach(user => {
             var review = document.createElement('div');
